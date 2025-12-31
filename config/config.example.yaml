@@ -1,0 +1,66 @@
+# LLMPulse 配置文件示例
+# 复制此文件为 config.yaml 并填入你的 API keys
+
+# LLM API 配置（用于内容分析和摘要生成）
+llm:
+  provider: "anthropic"  # 可选: anthropic, openai
+  api_key: "your-api-key-here"
+  model: "claude-3-5-sonnet-20241022"  # 或 gpt-4 等
+  max_tokens: 4096
+
+# 数据源配置
+data_sources:
+  # 行业动态 RSS 源
+  industry:
+    - name: "OpenAI Blog"
+      url: "https://openai.com/blog/rss.xml"
+      category: "industry"
+    - name: "DeepMind Blog"
+      url: "https://deepmind.google/blog/rss.xml"
+      category: "industry"
+    - name: "OpenAI Research"
+      url: "https://openai.com/research/rss.xml"
+      category: "industry"
+    - name: "Hugging Face Blog"
+      url: "https://huggingface.co/blog/feed.xml"
+      category: "industry"
+
+  # 学术前沿
+  academic:
+    - name: "arXiv AI"
+      url: "https://export.arxiv.org/rss/cs.AI"
+      category: "academic"
+    - name: "arXiv CL"
+      url: "https://export.arxiv.org/rss/cs.CL"
+      category: "academic"
+    - name: "arXiv LG (Machine Learning)"
+      url: "https://export.arxiv.org/rss/cs.LG"
+      category: "academic"
+
+  # 应用生态
+  applications:
+    - name: "Hacker News AI"
+      url: "https://hnrss.org/newest?q=AI+OR+LLM"
+      category: "applications"
+
+# 报告生成配置
+report:
+  # 报告时间范围（天数）
+  days_back: 7
+
+  # 每个类别最多显示的条目数
+  max_items_per_category: 10
+
+  # 生成洞察分析
+  generate_insights: true
+
+  # 输出格式
+  output_format: "markdown"  # 可选: markdown, html
+
+  # 报告输出目录
+  output_dir: "reports"
+
+# 缓存配置（避免重复抓取）
+cache:
+  enabled: true
+  ttl_hours: 24
