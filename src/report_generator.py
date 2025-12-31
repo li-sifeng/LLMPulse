@@ -53,6 +53,7 @@ class ReportGenerator:
 - 🏢 行业动态: {len(data.get('industry', []))} 条
 - 📚 学术前沿: {len(data.get('academic', []))} 条
 - 🚀 应用实践: {len(data.get('applications', []))} 条
+- 💼 创业生态: {len(data.get('startups', []))} 条
 
 ---
 
@@ -95,13 +96,26 @@ class ReportGenerator:
 
 ---
 
+## 💼 创业生态
+
+{summaries.get('startups', '暂无内容')}
+
+<details>
+<summary>查看完整列表</summary>
+
+{self._format_item_list(data.get('startups', []))}
+
+</details>
+
+---
+
 ## 💡 洞察与思考
 
 {insights if insights else '本周暂无特别洞察。'}
 
 ---
 
-*由 LLMPulse 自动生成 | [GitHub](https://github.com/yourusername/LLMPulse)*
+*由 LLMPulse 自动生成 | [GitHub](https://github.com/li-sifeng/LLMPulse)*
 """
         return report
 

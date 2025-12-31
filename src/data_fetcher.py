@@ -35,7 +35,8 @@ class DataFetcher:
         results = {
             'industry': [],
             'academic': [],
-            'applications': []
+            'applications': [],
+            'startups': []
         }
 
         # 获取行业动态
@@ -52,6 +53,11 @@ class DataFetcher:
         for source in self.data_sources.get('applications', []):
             items = self._fetch_rss(source)
             results['applications'].extend(items)
+
+        # 获取创业生态
+        for source in self.data_sources.get('startups', []):
+            items = self._fetch_rss(source)
+            results['startups'].extend(items)
 
         # 按时间排序并过滤
         cutoff_date = datetime.now() - timedelta(days=self.days_back)

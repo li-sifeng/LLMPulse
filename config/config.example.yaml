@@ -43,6 +43,21 @@ data_sources:
       url: "https://hnrss.org/newest?q=AI+OR+LLM"
       category: "applications"
 
+  # 创业生态 - 聚焦 LLM 生产力工具和 AIOps
+  startups:
+    - name: "Hacker News - AI Tools & Productivity"
+      url: "https://hnrss.org/newest?q=AI+tools+OR+productivity+OR+AIOps+OR+DevOps"
+      category: "startups"
+    - name: "Product Hunt - New Products"
+      url: "https://www.producthunt.com/feed"
+      category: "startups"
+    - name: "Hacker News - Startups & Launches"
+      url: "https://hnrss.org/newest?q=Show+HN+OR+Launch+HN+OR+startup"
+      category: "startups"
+    - name: "Indie Hackers Latest"
+      url: "https://www.indiehackers.com/feed"
+      category: "startups"
+
 # 报告生成配置
 report:
   # 报告时间范围（天数）

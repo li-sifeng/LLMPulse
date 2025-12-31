@@ -78,6 +78,7 @@ def main():
     print(f"   - 行业动态: {len(data.get('industry', []))} 条")
     print(f"   - 学术前沿: {len(data.get('academic', []))} 条")
     print(f"   - 应用实践: {len(data.get('applications', []))} 条")
+    print(f"   - 创业生态: {len(data.get('startups', []))} 条")
     print()
 
     if total_items == 0:
@@ -88,7 +89,7 @@ def main():
     print("📝 正在为每篇文章生成核心观点摘要...")
     article_summarizer = ArticleSummarizer(config)
 
-    for category in ['industry', 'academic', 'applications']:
+    for category in ['industry', 'academic', 'applications', 'startups']:
         if data.get(category):
             print(f"\n{category} 类别:")
             data[category] = article_summarizer.summarize_batch(data[category])
@@ -99,7 +100,7 @@ def main():
     print("🤖 正在使用 LLM 生成类别摘要...")
     summaries = {}
 
-    for category in ['industry', 'academic', 'applications']:
+    for category in ['industry', 'academic', 'applications', 'startups']:
         if data.get(category):
             print(f"   正在分析 {category}...")
             summaries[category] = analyzer.summarize_category(data[category], category)

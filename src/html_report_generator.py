@@ -44,6 +44,7 @@ class HTMLReportGenerator:
         industry_count = len(data.get('industry', []))
         academic_count = len(data.get('academic', []))
         applications_count = len(data.get('applications', []))
+        startups_count = len(data.get('startups', []))
 
         # 构建 HTML
         html = f"""<!DOCTYPE html>
@@ -339,6 +340,11 @@ class HTMLReportGenerator:
                     <div class="number">{applications_count}</div>
                     <div class="label">应用实践</div>
                 </div>
+                <div class="stat-card">
+                    <div class="icon">💼</div>
+                    <div class="number">{startups_count}</div>
+                    <div class="label">创业生态</div>
+                </div>
             </div>
         </div>
 
@@ -347,6 +353,8 @@ class HTMLReportGenerator:
         {self._build_category_section('academic', '📚 学术前沿', data.get('academic', []), summaries.get('academic', ''))}
 
         {self._build_category_section('applications', '🚀 应用实践', data.get('applications', []), summaries.get('applications', ''))}
+
+        {self._build_category_section('startups', '💼 创业生态', data.get('startups', []), summaries.get('startups', ''))}
 
         {self._build_insights_section(insights)}
 
